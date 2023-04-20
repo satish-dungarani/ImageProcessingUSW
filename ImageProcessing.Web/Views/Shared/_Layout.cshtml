@@ -1,977 +1,731 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Image Processing | Assessment 2</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <title>IP</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS Files -->
+    <link href="assets/css/variables.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Image Processing
+    * Updated: Mar 10 2023 with Bootstrap v5.2.3
+    * Template URL: https://bootstrapmade.com/Image Processing-bootstrap-blog-template/
+    * Author: BootstrapMade.com
+    * License: https:///bootstrapmade.com/license/
+    ======================================================== -->
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-    <div class="wrapper">
 
-        <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-        </div>
+<body>
 
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-                </li>
-              @*  <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>*@
-            </ul>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
-
-                <!-- Messages Dropdown Menu -->
-               @* <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>*@
-                <!-- Notifications Dropdown Menu -->
-              @*  <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>*@
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.navbar -->
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="dist/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Img Processing</span>
+            <a href="index.html" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1>Image Processing</h1>
             </a>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-              @*  <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Super Admin</a>
-                    </div>
-                </div>*@
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="single-post.html">Posts</a></li>
+                    @* <li class="dropdown">
+                    <a href="javascript:void()"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                    <li><a href="#">Drop Down 1</a></li>
+                    @* <li class="dropdown">
+                    <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                    <li><a href="#">Deep Drop Down 1</a></li>
+                    <li><a href="#">Deep Drop Down 2</a></li>
+                    <li><a href="#">Deep Drop Down 3</a></li>
+                    <li><a href="#">Deep Drop Down 4</a></li>
+                    <li><a href="#">Deep Drop Down 5</a></li>
+                    </ul>
+                    </li>
+                    <li><a href="#">Drop Down 2</a></li>
+                    <li><a href="#">Drop Down 3</a></li>
+                    <li><a href="#">Drop Down 4</a></li>
+                    </ul>
+                    </li>
 
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>*@
+                </ul>
+            </nav><!-- .navbar -->
+
+            <div class="position-relative">
+                <a href="https://www.facebook.com/Dungaranisatish7511" class="mx-2" target="_blank"><span class="bi-facebook"></span></a>
+                <a href="https://www.linkedin.com/in/satishdungarani" class="mx-2" target="_blank"><span class="bi-linkedin"></span></a>
+                <a href="https://www.instagram.com/satish_dungarani" class="mx-2" target="_blank"><span class="bi-instagram"></span></a>
+
+                <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+
+                <!-- ======= Search Form ======= -->
+                <div class="search-form-wrap js-search-form-wrap">
+                    <form action="search-result.html" class="search-form">
+                        <span class="icon bi-search"></span>
+                        <input type="text" placeholder="Search" class="form-control">
+                        <button class="btn js-search-close"><span class="bi-x"></span></button>
+                    </form>
+                </div><!-- End Search Form -->
+
+            </div>
+
+        </div>
+
+    </header><!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= Hero Slider Section ======= -->
+        @*  <section id="hero-slider" class="hero-slider">
+        <div class="container-md" data-aos="fade-in">
+        <div class="row">
+        <div class="col-12">
+        <div class="swiper sliderFeaturedPosts">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-1.jpg');">
+        <div class="img-bg-inner">
+        <h2>The Best Homemade Masks for Face (keep the Pimples Away)</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+        </div>
+        </a>
+        </div>
+
+        <div class="swiper-slide">
+        <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-2.jpg');">
+        <div class="img-bg-inner">
+        <h2>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+        </div>
+        </a>
+        </div>
+
+        <div class="swiper-slide">
+        <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-3.jpg');">
+        <div class="img-bg-inner">
+        <h2>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+        </div>
+        </a>
+        </div>
+
+        <div class="swiper-slide">
+        <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('assets/img/post-slide-4.jpg');">
+        <div class="img-bg-inner">
+        <h2>9 Half-up/half-down Hairstyles for Long and Medium Hair</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
+        </div>
+        </a>
+        </div>
+        </div>
+        <div class="custom-swiper-button-next">
+        <span class="bi-chevron-right"></span>
+        </div>
+        <div class="custom-swiper-button-prev">
+        <span class="bi-chevron-left"></span>
+        </div>
+
+        <div class="swiper-pagination"></div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>*@
+        <!-- End Hero Slider Section -->
+        <!-- ======= Post Grid Section ======= -->
+        <section id="posts" class="posts">
+            <div class="container" data-aos="fade-up">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="post-entry-1 lg">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                            <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque. Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
+
+                            <div class="d-flex align-items-center author">
+                                <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+                                <div class="name">
+                                    <h3 class="m-0 p-0">Cameron Williamson</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="row g-5">
+                            <section class="content">
+                                <div class="container-fluid">
+                                    @RenderBody()
+                                </div><!--/. container-fluid -->
+                            </section>
+                            @* <div class="col-lg-4 border-start custom-border">
+                            <div class="post-entry-1">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Sport</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
+                            </div>
+                            <div class="post-entry-1">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Food</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
+                            <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                            </div>
+                            <div class="post-entry-1">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Design</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
+                            <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
+                            </div>
+                            </div>
+                            <div class="col-lg-4 border-start custom-border">
+                            <div class="post-entry-1">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2><a href="single-post.html">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
+                            </div>
+                            <div class="post-entry-1">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Tech</span> <span class="mx-1">&bullet;</span> <span>Mar 1st '22</span></div>
+                            <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                            </div>
+                            <div class="post-entry-1">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Travel</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                            </div>
+                            </div>
+
+                            <!-- Trending Section -->
+                            <div class="col-lg-4">
+
+                            <div class="trending">
+                            <h3>Trending</h3>
+                            <ul class="trending-post">
+                            <li>
+                            <a href="single-post.html">
+                            <span class="number">1</span>
+                            <h3>The Best Homemade Masks for Face (keep the Pimples Away)</h3>
+                            <span class="author">Jane Cooper</span>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="single-post.html">
+                            <span class="number">2</span>
+                            <h3>17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</h3>
+                            <span class="author">Wade Warren</span>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="single-post.html">
+                            <span class="number">3</span>
+                            <h3>13 Amazing Poems from Shel Silverstein with Valuable Life Lessons</h3>
+                            <span class="author">Esther Howard</span>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="single-post.html">
+                            <span class="number">4</span>
+                            <h3>9 Half-up/half-down Hairstyles for Long and Medium Hair</h3>
+                            <span class="author">Cameron Williamson</span>
+                            </a>
+                            </li>
+                            <li>
+                            <a href="single-post.html">
+                            <span class="number">5</span>
+                            <h3>Life Insurance And Pregnancy: A Working Mom’s Guide</h3>
+                            <span class="author">Jenny Wilson</span>
+                            </a>
+                            </li>
+                            </ul>
+                            </div>
+
+                            </div> <!-- End Trending Section -->*@
+                        </div>
+                    </div>
+
+                </div> <!-- End .row -->
+            </div>
+        </section> <!-- End Post Grid Section -->
+        <!-- ======= Culture Category Section ======= -->
+        <section class="category-section">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header d-flex justify-content-between align-items-center mb-5">
+                    <h2>Culture</h2>
+                    <div><a href="category.html" class="more">See All Culture</a></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <div class="d-lg-flex post-entry-2">
+                            <a href="single-post.html" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                                <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
+                            </a>
+                            <div>
+                                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                <h3><a href="single-post.html">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
+                                <div class="d-flex align-items-center author">
+                                    <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
+                                    <div class="name">
+                                        <h3 class="m-0 p-0">Wade Warren</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="post-entry-1 border-bottom">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                    <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                </div>
+
+                                <div class="post-entry-1">
+                                    <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                    <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library -->
-
-
-                        <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>Users</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
-                                <p>Documentation</p>
-                            </a>
-                        </li>
-
-                        @*<li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                        Dashboard
-                        <i class="right fas fa-angle-left"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="./index.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v1</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="./index2.html" class="nav-link active">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v2</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="./index3.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Dashboard v3</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                        Widgets
-                        <span class="right badge badge-danger">New</span>
-                        </p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                        Layout Options
-                        <i class="fas fa-angle-left right"></i>
-                        <span class="badge badge-info right">6</span>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/layout/top-nav.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Top Navigation</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Top Navigation + Sidebar</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/boxed.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Boxed</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fixed Sidebar</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fixed Navbar</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/fixed-footer.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Fixed Footer</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Collapsed Sidebar</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                        Charts
-                        <i class="right fas fa-angle-left"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/charts/chartjs.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>ChartJS</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/charts/flot.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Flot</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/charts/inline.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Inline</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/charts/uplot.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>uPlot</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                        UI Elements
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/UI/general.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>General</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/icons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Icons</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/buttons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Buttons</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/sliders.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Sliders</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/modals.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Modals & Alerts</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/navbar.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Navbar & Tabs</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/timeline.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Timeline</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/UI/ribbons.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Ribbons</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                        Forms
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/forms/general.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>General Elements</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/forms/advanced.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Advanced Elements</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/forms/editors.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Editors</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/forms/validation.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Validation</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                        Tables
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/tables/simple.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Simple Tables</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/tables/data.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>DataTables</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/tables/jsgrid.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>jsGrid</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-header">EXAMPLES</li>
-                        <li class="nav-item">
-                        <a href="pages/calendar.html" class="nav-link">
-                        <i class="nav-icon fas fa-calendar-alt"></i>
-                        <p>
-                        Calendar
-                        <span class="badge badge-info right">2</span>
-                        </p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                        Gallery
-                        </p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/kanban.html" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
-                        <p>
-                        Kanban Board
-                        </p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-envelope"></i>
-                        <p>
-                        Mailbox
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/mailbox/mailbox.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Inbox</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/mailbox/compose.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Compose</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/mailbox/read-mail.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Read</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                        Pages
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/examples/invoice.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Invoice</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/profile.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Profile</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/e-commerce.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>E-commerce</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/projects.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Projects</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/project-add.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Project Add</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/project-edit.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Project Edit</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/project-detail.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Project Detail</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/contacts.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Contacts</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/faq.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>FAQ</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/contact-us.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Contact us</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-plus-square"></i>
-                        <p>
-                        Extras
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>
-                        Login & Register v1
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/examples/login.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Login v1</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/register.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Register v1</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/forgot-password.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Forgot Password v1</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/recover-password.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Recover Password v1</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>
-                        Login & Register v2
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/examples/login-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Login v2</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/register-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Register v2</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/forgot-password-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Forgot Password v2</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/recover-password-v2.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Recover Password v2</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/lockscreen.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Lockscreen</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Legacy User Menu</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/language-menu.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Language Menu</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/404.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Error 404</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/500.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Error 500</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/pace.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Pace</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/examples/blank.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Blank Page</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="starter.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Starter Page</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-search"></i>
-                        <p>
-                        Search
-                        <i class="fas fa-angle-left right"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="pages/search/simple.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Simple Search</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="pages/search/enhanced.html" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Enhanced</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-header">MISCELLANEOUS</li>
-                        <li class="nav-item">
-                        <a href="iframe.html" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
-                        <p>Tabbed IFrame Plugin</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>Documentation</p>
-                        </a>
-                        </li>
-                        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="fas fa-circle nav-icon"></i>
-                        <p>Level 1</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>
-                        Level 1
-                        <i class="right fas fa-angle-left"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Level 2</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>
-                        Level 2
-                        <i class="right fas fa-angle-left"></i>
-                        </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-dot-circle nav-icon"></i>
-                        <p>Level 3</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Level 2</p>
-                        </a>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="fas fa-circle nav-icon"></i>
-                        <p>Level 1</p>
-                        </a>
-                        </li>
-                        <li class="nav-header">LABELS</li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Important</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
-                        <p>Warning</p>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-info"></i>
-                        <p>Informational</p>
-                        </a>
-                        </li>*@
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
-        </aside>
+        </section><!-- End Culture Category Section -->
+        <!-- ======= Business Category Section ======= -->
+        <section class="category-section">
+            <div class="container" data-aos="fade-up">
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        @*<div class="col-sm-6">
-                            <h1 class="m-0">Dashboard v2</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v2</li>
-                            </ol>
-                        </div><!-- /.col -->*@
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    @RenderBody()
-                </div><!--/. container-fluid -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="https://adminlte.io">30073102 - Satish Dungarani</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 1.0.0
-            </div>
-        </footer>
-    </div>
-    <!-- ./wrapper -->
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
+                <div class="section-header d-flex justify-content-between align-items-center mb-5">
+                    <h2>Business</h2>
+                    <div><a href="category.html" class="more">See All Business</a></div>
+                </div>
 
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+                <div class="row">
+                    <div class="col-md-9 order-md-2">
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard2.js"></script>
-</body>
-</html>
+                        <div class="d-lg-flex post-entry-2">
+                            <a href="single-post.html" class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                                <img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid">
+                            </a>
+                            <div>
+                                <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                <h3><a href="single-post.html">What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</a></h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
+                                <div class="d-flex align-items-center author">
+                                    <div class="photo"><img src="assets/img/person-4.jpg" alt="" class="img-fluid"></div>
+                                    <div class="name">
+                                        <h3 class="m-0 p-0">Wade Warren</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="post-entry-1 border-bottom">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                    <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                </div>
 
+                                <div class="post-entry-1">
+                                    <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-7.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                    <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
 
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ImageProcessing.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ImageProcessing.Web.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ImageProcessing.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        </section><!-- End Business Category Section -->
+        <!-- ======= Lifestyle Category Section ======= -->
+        <section class="category-section">
+            <div class="container" data-aos="fade-up">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - ImageProcessing.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <div class="section-header d-flex justify-content-between align-items-center mb-5">
+                    <h2>Lifestyle</h2>
+                    <div><a href="category.html" class="more">See All Lifestyle</a></div>
+                </div>
+
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="post-entry-1 lg">
+                            <a href="single-post.html"><img src="assets/img/post-landscape-8.jpg" alt="" class="img-fluid"></a>
+                            <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2><a href="single-post.html">11 Work From Home Part-Time Jobs You Can Do Now</a></h2>
+                            <p class="mb-4 d-block">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero temporibus repudiandae, inventore pariatur numquam cumque possimus exercitationem? Nihil tempore odit ab minus eveniet praesentium, similique blanditiis molestiae ut saepe perspiciatis officia nemo, eos quae cumque. Accusamus fugiat architecto rerum animi atque eveniet, quo, praesentium dignissimos</p>
+
+                            <div class="d-flex align-items-center author">
+                                <div class="photo"><img src="assets/img/person-7.jpg" alt="" class="img-fluid"></div>
+                                <div class="name">
+                                    <h3 class="m-0 p-0">Esther Howard</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="post-entry-1 border-bottom">
+                            <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                        <div class="post-entry-1">
+                            <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                            <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                            <span class="author mb-3 d-block">Jenny Wilson</span>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="row g-5">
+                            <div class="col-lg-4 border-start custom-border">
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2><a href="single-post.html">Let’s Get Back to Work, New York</a></h2>
+                                </div>
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 17th '22</span></div>
+                                    <h2><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                                </div>
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-4.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Mar 15th '22</span></div>
+                                    <h2><a href="single-post.html">Why Craigslist Tampa Is One of The Most Interesting Places On the Web?</a></h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 border-start custom-border">
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-3.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2><a href="single-post.html">6 Easy Steps To Create Your Own Cute Merch For Instagram</a></h2>
+                                </div>
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Mar 1st '22</span></div>
+                                    <h2><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                                </div>
+                                <div class="post-entry-1">
+                                    <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2><a href="single-post.html">5 Great Startup Tips for Female Founders</a></h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+
+                                <div class="post-entry-1 border-bottom">
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">How to Avoid Distraction and Stay Focused During Video Calls?</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+
+                                <div class="post-entry-1 border-bottom">
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">17 Pictures of Medium Length Hair in Layers That Will Inspire Your New Haircut</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+
+                                <div class="post-entry-1 border-bottom">
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">9 Half-up/half-down Hairstyles for Long and Medium Hair</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+
+                                <div class="post-entry-1 border-bottom">
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">Life Insurance And Pregnancy: A Working Mom’s Guide</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+
+                                <div class="post-entry-1 border-bottom">
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+
+                                <div class="post-entry-1 border-bottom">
+                                    <div class="post-meta"><span class="date">Lifestyle</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                    <h2 class="mb-2"><a href="single-post.html">10 Life-Changing Hacks Every Working Mom Should Know</a></h2>
+                                    <span class="author mb-3 d-block">Jenny Wilson</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End .row -->
+            </div>
+        </section><!-- End Lifestyle Category Section -->
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+
+        <div class="footer-content">
+            <div class="container">
+
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <h3 class="footer-heading">About Image Processing</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
+                        <p><a href="about.html" class="footer-link-more">Learn More</a></p>
+                    </div>
+                    <div class="col-6 col-lg-2">
+                        <h3 class="footer-heading">Navigation</h3>
+                        <ul class="footer-links list-unstyled">
+                            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
+                            <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
+                            <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
+                            <li><a href="single-post.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
+                            <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
+                            <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                    @* <div class="col-6 col-lg-2">
+                    <h3 class="footer-heading">Categories</h3>
+                    <ul class="footer-links list-unstyled">
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Culture</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Sport</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Food</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Politics</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Celebrity</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
+                    <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
+
+                    </ul>
+                    </div>
+                    *@
+                    <div class="col-lg-4">
+                        <h3 class="footer-heading">Recent Posts</h3>
+
+                        <ul class="footer-links footer-blog-entry list-unstyled">
+                            <li>
+                                <a href="single-post.html" class="d-flex align-items-center">
+                                    <img src="assets/img/post-sq-1.jpg" alt="" class="img-fluid me-3">
+                                    <div>
+                                        <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                        <span>5 Great Startup Tips for Female Founders</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="single-post.html" class="d-flex align-items-center">
+                                    <img src="assets/img/post-sq-2.jpg" alt="" class="img-fluid me-3">
+                                    <div>
+                                        <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                        <span>What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="single-post.html" class="d-flex align-items-center">
+                                    <img src="assets/img/post-sq-3.jpg" alt="" class="img-fluid me-3">
+                                    <div>
+                                        <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                        <span>Life Insurance And Pregnancy: A Working Mom’s Guide</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="single-post.html" class="d-flex align-items-center">
+                                    <img src="assets/img/post-sq-4.jpg" alt="" class="img-fluid me-3">
+                                    <div>
+                                        <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                                        <span>How to Avoid Distraction and Stay Focused During Video Calls?</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div class="footer-legal">
+            <div class="container">
+
+                <div class="row justify-content-between">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <div class="copyright">
+                            © Copyright <strong><span>Image Processing</span></strong>. All Rights Reserved
+                        </div>
+
+                        <div class="credits">
+                            <!-- All the links in the footer should remain intact. -->
+                            <!-- You can delete the links only if you purchased the pro version. -->
+                            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+                            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+                            <a href="https://www.facebook.com/Dungaranisatish7511" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/satish_dungarani" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://join.skype.com/invite/UHq3S4c6K1BD" target="_blank" class="google-plus"><i class="bi bi-skype"></i></a>
+                            <a href="https://www.linkedin.com/in/satishdungarani" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
 </body>
-</html>*@
+
+</html>

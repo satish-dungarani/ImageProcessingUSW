@@ -1,7 +1,23 @@
+using ImageProcessing.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<RouteOptions>(options =>
+{
+    options.LowercaseUrls = true;
+    options.LowercaseQueryStrings = true;
+    options.AppendTrailingSlash = true;
+});
+
+
+builder.Services.AddDbContext<ImageProcessingDBContext>(options => options.UseSqlServer(builder.Configuration
+    .GetConnectionString("IPConectionString")));
+
 
 var app = builder.Build();
 
@@ -20,8 +36,19 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapAreaControllerRoute(
+            name: "MyAreaAdmin",
+            areaName: "Admin",
+            pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
+//app.MapControllerRoute(
+//   name: "areas",
+//      pattern: "{area:}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();
