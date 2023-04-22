@@ -1,4 +1,6 @@
-using ImageProcessing.Data;
+using ImageProcessing.Data.DataContext;
+using ImageProcessing.Data.Interface;
+using ImageProcessing.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -7,17 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ImageProcessingDBContext>(options => options.UseSqlServer(builder.Configuration
+    .GetConnectionString("IPConectionString")));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.Configure<RouteOptions>(options =>
 {
     options.LowercaseUrls = true;
     options.LowercaseQueryStrings = true;
     options.AppendTrailingSlash = true;
 });
-
-
-builder.Services.AddDbContext<ImageProcessingDBContext>(options => options.UseSqlServer(builder.Configuration
-    .GetConnectionString("IPConectionString")));
-
 
 var app = builder.Build();
 

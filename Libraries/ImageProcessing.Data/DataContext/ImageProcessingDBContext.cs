@@ -6,16 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImageProcessing.Data
+namespace ImageProcessing.Data.DataContext
 {
     public partial class ImageProcessingDBContext : DbContext
     {
-        public ImageProcessingDBContext(DbContextOptions options) : base(options)
+        public ImageProcessingDBContext(DbContextOptions<ImageProcessingDBContext> options) : base(options)
         {
-            
+
         }
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Address> Address { get; set; }
     }
 }

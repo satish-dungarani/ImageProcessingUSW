@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ImageProcessing.Data\ImageProcessing.Data.csproj" />
+  </ItemGroup>
+
 </Project>

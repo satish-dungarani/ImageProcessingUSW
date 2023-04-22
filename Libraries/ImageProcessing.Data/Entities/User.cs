@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ImageProcessing.Data
 {
-    public partial class Users
+    public partial class User
     {
         public int Id { get; set; }
         public string Firstname { get; set; }
@@ -16,11 +16,11 @@ namespace ImageProcessing.Data
         public string Image { get; set; }
         public DateTime DOB { get; set; }
         public string Gender { get; set; }
-       
         public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsAdmin { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
+
 
     }
 }
