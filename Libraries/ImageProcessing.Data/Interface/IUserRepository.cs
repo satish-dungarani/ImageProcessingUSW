@@ -9,5 +9,6 @@ namespace ImageProcessing.Data.Interface
     public interface IUserRepository
     {
         Task<IEnumerable<User>> GetUsersAsync();
+        Task<int> InsertUserAsync(User user);
     }
 }

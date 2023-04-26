@@ -25,7 +25,6 @@
     <None Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\Errors\Error404.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
-    <None Include="wwwroot\assets\css\main.css" />
     <None Include="wwwroot\assets\css\variables.css" />
     <None Include="wwwroot\assets\img\apple-touch-icon.png" />
     <None Include="wwwroot\assets\img\favicon.png" />
@@ -196,6 +195,9 @@
     <Content Update="Views\_ViewStart.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\assets\css\main.css">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

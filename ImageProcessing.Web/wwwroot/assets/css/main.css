@@ -1,17 +1,4 @@
-/**
-* Template Name: ZenBlog
-* Updated: Mar 10 2023 with Bootstrap v5.2.3
-* Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
-* Author: BootstrapMade.com
-* License: https:///bootstrapmade.com/license/
-*/
-
-/**
-* Check out variables.css for easy customization of colors, typography, and other repetitive properties
-*/
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
+ 
 :root {
   scroll-behavior: smooth;
 }
@@ -1298,3 +1285,4 @@ section {
 .footer .credits a {
   color: var(--color-white);
 }
+

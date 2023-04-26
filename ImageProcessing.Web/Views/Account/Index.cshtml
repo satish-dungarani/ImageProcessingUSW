@@ -4,11 +4,11 @@
     ViewData["Title"] = "Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+ 
 <div class="container" data-aos="fade-up">
 
     <div class="section-header d-flex justify-content-between align-items-center mb-5">
         <h2>Sign In/Registration</h2>
-        @*<div><a href="category.html" class="more">See All Culture</a></div>*@
     </div>
 
     <div class="row justify-content-center">
@@ -17,14 +17,74 @@
                 <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                            <a href="../Account/Login" class="nav-link">Log In</a>
+                            @*<button class="nav-link active" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab" aria-controls="signin" aria-selected="true">Log In</button>*@
+                            <a href="Account/Signin" class="nav-link active" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin"  role="tab" aria-controls="signin" aria-selected="true">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../Account/Register" class="nav-link">Register</a>
+                            @*<button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Register</button>*@
+                            <a href="Account/Register" class="nav-link active" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" role="tab" aria-controls="signin" aria-selected="true">Reg</a>
                         </li>
                     </ul>
                 </div>
-                <div class="card-body">
+                <div class="card-body tab-content">
+                    <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                       <form asp-action="Signin" asp-controller="Account" method="POST" data-ajax="true" data-ajax-update="result">
+                            <div class="mb-3">
+                                <label for="Email" class="form-label required">Email address</label>
+                                @Html.TextBoxFor(m=>m.Email, new {@class="form-control", @type="email", @placeholder="Email"})
+                                @Html.ValidationMessageFor(m=>m.Email)
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Password" class="form-label required">Password</label>
+                                @Html.TextBoxFor(m=>m.Password, new {@class="form-control", @type="password", @placeholder="Password"})
+                                @Html.ValidationMessageFor(m=>m.Password)
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                            </div>
+
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            </div>
+                       </form>
+                    </div>
+                    <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "frm_register", @enctype = "multipart/form-data" }))
+                        {
+
+                            <div class="mb-3">
+                                @Html.LabelFor(m=>m.Firstname, new {@class="form-label required"})
+                                @Html.TextBoxFor(m=>m.Firstname, new {@class="form-control", @placeholder="First Name"})
+                                @Html.ValidationMessageFor(m=>m.Firstname)
+                            </div>
+                            <div class="mb-3">
+                                @Html.LabelFor(m=>m.Lastname, new {@class="form-label"})
+                                @Html.TextBoxFor(m=>m.Lastname, new {@class="form-control", @placeholder="Last Name"})
+                                @Html.ValidationMessageFor(m=>m.Lastname)
+                            </div>
+                            <div class="mb-3">
+                                @Html.LabelFor(m=>m.Email, new {@class="form-label required"})
+                                @Html.TextBoxFor(m=>m.Email, new {@class="form-control", @type="email", @placeholder="Email"})
+                                @Html.ValidationMessageFor(m=>m.Email)
+                            </div>
+                            <div class="mb-3">
+                                @Html.LabelFor(m=>m.Password, new {@class="form-label required"})
+                                @Html.TextBoxFor(m=>m.Password, new {@class="form-control", @placeholder="Password"})
+                                @Html.ValidationMessageFor(m=>m.Password)
+                            </div>
+                            <div class="mb-3">
+                                @Html.LabelFor(m=>m.ConfirmPassword, new {@class="form-label required"})
+                                @Html.TextBoxFor(m=>m.ConfirmPassword, new {@class="form-control", @placeholder="Confirm Password"})
+                                @Html.ValidationMessageFor(m=>m.ConfirmPassword)
+                            </div>
+
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            </div>
+                     }
+                    </div>
 
                 </div>
             </div>

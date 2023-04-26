@@ -17,5 +17,9 @@ namespace ImageProcessing.Services
         {
            return _userRepository.GetUsersAsync();
         }
+        public Task<int> InsertUserAsync(User user)
+        {
+           return _userRepository.InsertUserAsync(user);
+        }
     }
 }

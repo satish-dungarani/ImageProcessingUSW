@@ -22,5 +22,17 @@ namespace ImageProcessing.Data.Interface
         {
             return await _dbContext.Users.ToListAsync();    
         }
+        public async Task<int> InsertUserAsync(User user)
+        {
+            try
+            {
+                _dbContext.Users.Add(user);
+                return await _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

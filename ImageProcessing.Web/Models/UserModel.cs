@@ -30,17 +30,15 @@ namespace ImageProcessing.Web.Models
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
         [Display(Name = "Profile Picture")]
-        public string Image { get; set; }
+        public string? Image { get; set; }
 
-        [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Date Of Birth")]
-        public DateTime DOB { get; set; }
+        public DateTime? DOB { get; set; }
 
-        [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Gender")]
-        public string Gender { get; set; }
+        public string? Gender { get; set; }
         
         [DataType(DataType.Text)]
         [Display(Name = "Is Account Active?")]
