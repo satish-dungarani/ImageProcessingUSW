@@ -9,15 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{B08701D7-24B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{6BABE261-8337-4272-93D5-B3C0221AD7E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{662A6F77-D431-4D0F-921F-A0C90164570F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageProcessing.API", "API\ImageProcessing.API\ImageProcessing.API.csproj", "{8A438BCA-722C-4A65-8734-4CE439324AC1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageProcessing.Data", "Libraries\ImageProcessing.Data\ImageProcessing.Data.csproj", "{1C7A223C-82A8-4D70-8479-CDBC36950644}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageProcessing.Services", "Libraries\ImageProcessing.Services\ImageProcessing.Services.csproj", "{41B6FC73-8B74-4A08-A9DD-D7907C017656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageProcessing.Web", "ImageProcessing.Web\ImageProcessing.Web.csproj", "{D846F8D2-3E35-44FE-ACB4-40EAF78C74B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageProcessing.Web", "ImageProcessing.Web\ImageProcessing.Web.csproj", "{D846F8D2-3E35-44FE-ACB4-40EAF78C74B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,12 +1,6 @@
 ﻿using ImageProcessing.Services;
 using IPinfo;
 using IPinfo.Models;
-using MaxMind.GeoIP2;
-using Microsoft.Net.Http.Headers;
-using Newtonsoft.Json;
-using NuGet.Protocol.Core.Types;
-using System;
-using System.Security.Policy;
 
 namespace ImageProcessing.Web.Helpers
 {

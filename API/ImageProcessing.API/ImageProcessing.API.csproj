@@ -7,11 +7,19 @@
     <UserSecretsId>88f8378c-c4d4-4377-92f2-bddd8cf79b2a</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ImageProcessing.Data\ImageProcessing.Data.csproj" />
+    <ProjectReference Include="..\..\Libraries\ImageProcessing.Services\ImageProcessing.Services.csproj" />
   </ItemGroup>
 
 </Project>

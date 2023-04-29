@@ -107,7 +107,6 @@ namespace ImageProcessing.Web.Controllers
             return Json(new { result = false, msg = "Something went wrong." });
         }
 
-
         public virtual IActionResult Signout()
         {
             try
