@@ -48,5 +48,11 @@ namespace ImageProcessing.Web.Models
         public bool? IsAdmin { get; set; }
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
+
+        [Display(Name = "Profile Picture")]
+        public IFormFile? ProfilePicture { get; set; }
+
+        [Display(Name = "Profile Picture URL")]
+        public string? ProfilePictureUrl { get; set; }
     }
 }

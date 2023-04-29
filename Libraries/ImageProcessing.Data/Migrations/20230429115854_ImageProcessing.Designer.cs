@@ -4,6 +4,7 @@ using ImageProcessing.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ImageProcessing.Data.Migrations
 {
     [DbContext(typeof(ImageProcessingDBContext))]
-    partial class ImageProcessingDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230429115854_ImageProcessing")]
+    partial class ImageProcessing
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

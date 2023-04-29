@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body tab-content">
                     <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
-                       <form asp-action="Signin" asp-controller="Account" method="POST" data-ajax="true" data-ajax-update="result">
+                        <form asp-action="Signin" asp-controller="Account" method="POST" data-ajax="true" data-ajax-success="onSuccess">
                             <div class="mb-3">
                                 <label for="Email" class="form-label required">Email address</label>
                                 @Html.TextBoxFor(m=>m.Email, new {@class="form-control", @type="email", @placeholder="Email"})
@@ -52,3 +52,16 @@
         </div>
     </div>
 </div>
+
+ <script>
+    var onSuccess = function (context) {
+        if (context.result) {
+            toastr.success(context.msg, 'Sucuess');
+            setTimeout(function () {
+                location = $(location).attr('origin');
+            }, 3000)
+        }else{
+            toastr.error(context.msg, 'Error');
+        }
+    };
+</script>

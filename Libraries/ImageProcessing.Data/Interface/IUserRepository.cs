@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageProcessing.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace ImageProcessing.Data.Interface
     public interface IUserRepository
     {
         Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetUserByIdAsync(int Id);
         Task<int> InsertUserAsync(User user);
+        Task<int> InsertRequestsAuditAsync(RequestsAudit requestsAudit);
     }
 }

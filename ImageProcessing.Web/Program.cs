@@ -1,6 +1,7 @@
 using ImageProcessing.Data.DataContext;
 using ImageProcessing.Data.Interface;
 using ImageProcessing.Services;
+using ImageProcessing.Web.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<ImageProcessingDBContext>(options => options.UseSq
 builder.Logging.ClearProviders();
 builder.Logging.AddLog4Net();
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
@@ -23,6 +25,13 @@ builder.Services.Configure<RouteOptions>(options =>
     options.LowercaseUrls = true;
     options.LowercaseQueryStrings = true;
     options.AppendTrailingSlash = true;
+});
+
+
+builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
 });
 
 var app = builder.Build();
@@ -38,11 +47,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
 app.UseRouting();
 app.UseAuthentication();;
-
 app.UseAuthorization();
 
+app.UseMiddleware<ImageProcessingMiddleware>();
 app.MapAreaControllerRoute(
             name: "MyAreaAdmin",
             areaName: "Admin",
@@ -54,7 +64,7 @@ app.MapAreaControllerRoute(
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Signin}/{id?}");
+    pattern: "{controller=home}/{action=index}/{id?}");
 
 app.MapRazorPages();    
 

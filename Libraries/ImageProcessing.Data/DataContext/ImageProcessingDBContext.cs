@@ -17,5 +17,6 @@ namespace ImageProcessing.Data.DataContext
 
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Address { get; set; }
+        public DbSet<RequestsAudit> RequestsAudits { get; set; }
     }
 }

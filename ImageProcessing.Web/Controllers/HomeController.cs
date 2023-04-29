@@ -9,11 +9,14 @@ namespace ImageProcessing.Web.Controllers
     {
         public IActionResult Index()
         {
-            LogHelper.logger.Info("File");
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult AboutUs()
         {
             return View();
         }
