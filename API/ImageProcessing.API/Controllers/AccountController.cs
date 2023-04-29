@@ -4,8 +4,6 @@ using ImageProcessing.Services.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace ImageProcessing.API.Controllers
 {
 
@@ -14,7 +12,7 @@ namespace ImageProcessing.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+   
     public class AccountController : ControllerBase
     {
         /// <summary>
@@ -34,8 +32,16 @@ namespace ImageProcessing.API.Controllers
             _userService = userService;
             _httpContextAccessor = httpContextAccessor;
         }
-        
-        [HttpGet("{id}")]
+
+        /// <summary>
+        /// Get USer by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        [Authorize]
+        [Route("Getuser")]
+        [HttpGet]
         public async Task<ActionResult<UserModel>> Get(int id)
         {
             try
@@ -57,12 +63,10 @@ namespace ImageProcessing.API.Controllers
                 };
                 return model;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return Content(ex.InnerException.ToString());
+                return NotFound();
             }
-
-            return NoContent(); 
         }
     }
 }

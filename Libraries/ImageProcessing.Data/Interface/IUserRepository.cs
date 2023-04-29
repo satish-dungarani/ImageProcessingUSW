@@ -13,5 +13,6 @@ namespace ImageProcessing.Data.Interface
         Task<User> GetUserByIdAsync(int Id);
         Task<int> InsertUserAsync(User user);
         Task<int> InsertRequestsAuditAsync(RequestsAudit requestsAudit);
+        Task<bool> CheckUser(string email, string password);
     }
 }

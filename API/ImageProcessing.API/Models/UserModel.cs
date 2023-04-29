@@ -14,7 +14,7 @@ namespace ImageProcessing.API.Models
 
         [DataType(DataType.Text)]
         [Display(Name = "Last Name")]
-        public string Lastname { get; set; }
+        public string? Lastname { get; set; }
         [Required]
         [EmailAddress]
         [DisplayName("Email")]

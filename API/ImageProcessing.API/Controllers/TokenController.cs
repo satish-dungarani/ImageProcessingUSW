@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ImageProcessing.Services;
+using ImageProcessing.Services.Helpers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -18,14 +20,17 @@ namespace ImageProcessing.API.Controllers
         /// Property Declaration
         /// </summary>
         public IConfiguration _configuration;
-        
+        private readonly IUserService _userService;
+
         /// <summary>
         /// Constroctor
         /// </summary>
         /// <param name="config"></param>
-        public TokenController(IConfiguration config)
+        /// <param name="userService"></param>
+        public TokenController(IConfiguration config, IUserService userService)
         {
             _configuration = config;
+            _userService = userService;
         }
 
         /// <summary>
@@ -33,8 +38,12 @@ namespace ImageProcessing.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Post()
+        public async Task<IActionResult> Post(string email,string password)
         {
+            //Check user befor providing token
+            if (!await _userService.CheckUser(email, SecurityHelper.Encrypt(password)))
+                return Unauthorized();
+            
             //create claims details based on the user information
             var claims = new[] {
             new Claim(JwtRegisteredClaimNames.Sub, _configuration["JWT:Subject"]),
@@ -51,5 +60,7 @@ namespace ImageProcessing.API.Controllers
             return Ok(new JwtSecurityTokenHandler().WriteToken(token));
 
         }
+
+
     }
 }

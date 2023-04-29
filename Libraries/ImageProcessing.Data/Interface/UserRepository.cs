@@ -58,6 +58,12 @@ namespace ImageProcessing.Data.Interface
             _dbContext.RequestsAudits.Add(requestsAudit);
             return await _dbContext.SaveChangesAsync();
         }
+
+        //To Check User
+        public async Task<bool> CheckUser(string email, string password)
+        {
+            return await _dbContext.Users.Where(x => x.Email == email && x.Password == password).AnyAsync();
+        }
         #endregion
 
     }
