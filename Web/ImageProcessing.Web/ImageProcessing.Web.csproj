@@ -2505,8 +2505,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Libraries\ImageProcessing.Data\ImageProcessing.Data.csproj" />
-    <ProjectReference Include="..\Libraries\ImageProcessing.Services\ImageProcessing.Services.csproj" />
+    <ProjectReference Include="..\..\Libraries\ImageProcessing.Data\ImageProcessing.Data.csproj" />
+    <ProjectReference Include="..\..\Libraries\ImageProcessing.Services\ImageProcessing.Services.csproj" />
   </ItemGroup>
 
 </Project>

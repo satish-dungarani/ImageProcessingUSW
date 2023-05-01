@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.required::after {
+    content: " *";
+    color: red;
+}
+
+.field-validation-error {
+    color: red;
+}   
