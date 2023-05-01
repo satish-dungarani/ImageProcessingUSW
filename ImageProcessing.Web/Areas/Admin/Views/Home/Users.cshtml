@@ -1,0 +1,47 @@
+﻿@model List<ImageProcessing.Data.User>
+
+
+<link href="~/plugins/datatables-bs4/css/datatables.bootstrap4.css" rel="stylesheet" />
+<link href="~/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">User Request History</h3>
+    </div>
+
+    <div class="card-body">
+        <table id="tbl_user_table" class="table table-bordered table-striped dataTable dtr-inline">
+            <thead>
+                <tr>
+                    <th>Profile Pic</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Birtdate</th>
+                    <th>Email</th>
+                    <th>Date Of Join</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @if(!string.IsNullOrEmpty(item.Image)){
+                                <img src="/images/avtar_dp.png" style="width: 20%;" />
+                            }
+                            else
+                            {
+                                <img src="@item.Image" style="width: 20%;" />
+                            }
+
+                        </td>
+                        <td>@item.Firstname &nbsp; @item.Lastname</td>
+                        <td>@item.Gender</td>
+                        <td>@item.DOB</td>
+                        <td>@item.Email</td>
+                        <td>@item.CreatedOn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

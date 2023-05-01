@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace ImageProcessing.Data.Entities
         public int? IPQuality { get; set; }
 
         public int UserId { get; set; }
+        [NotMapped]
+        public string? UserName { get; set; }
         public DateTime? CreatedOn { get; set; }
     }
 }

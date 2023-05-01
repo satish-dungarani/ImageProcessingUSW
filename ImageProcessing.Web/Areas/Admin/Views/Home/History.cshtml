@@ -1,0 +1,38 @@
+﻿@model List<ImageProcessing.Data.Entities.ImageProcessingHistory>
+
+
+<link href="~/plugins/datatables-bs4/css/datatables.bootstrap4.css" rel="stylesheet" />
+<link href="~/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">User Request History</h3>
+    </div>
+
+    <div class="card-body">
+        <table id="tbl_user_table" class="table table-bordered table-striped dataTable dtr-inline">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Requested Iamge</th>
+                    <th>Processed Image</th>
+                    <th>Width</th>
+                    <th>Hight</th>
+                    <th>Requested Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td><img src="@string.Concat("\\",item.RequestedImageUrl?.Replace("\\","/"))" style="width: 15%;" /></td>
+                        <td><img src="@string.Concat("\\",item.ProcessedImageUrl?.Replace("\\","/"))" style="width: 15%;" /></td>
+                        <td>@item.Width</td>
+                        <td>@item.Height</td>
+                        <td>@item.CreatedOn</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

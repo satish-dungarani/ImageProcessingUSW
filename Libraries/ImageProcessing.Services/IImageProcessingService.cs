@@ -11,5 +11,7 @@ namespace ImageProcessing.Services
     {
         bool ApplyEffectInsideShape(ImageProcessingHistory entity);
         Task<bool> ResizeImage(ImageProcessingHistory entity);
+
+        Task<IEnumerable<ImageProcessingHistory>> GetHistoriesAsync();
     }
 }

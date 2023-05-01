@@ -43,6 +43,10 @@ namespace ImageProcessing.Services
         {
             return await _userRepository.CheckUser(email, password);
         }
+        public async Task<IEnumerable<RequestsAudit>> GetUserRequestAuditAsync()
+        {
+            return await _userRepository.GetRequestsAuditsAsync();
+        }
         #endregion
 
     }

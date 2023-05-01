@@ -58,8 +58,8 @@ namespace ImageProcessing.Web.Controllers
                     IPQuality = model.IPQuality,
                     RequestedImageUrl = model.RequestedImageUrl,
                     ProcessedImageUrl = model.ProcessedImageUrl,
-                    UserId = Convert.ToInt32(_httpContextAccessor.HttpContext.Session.GetInt32("Id"))
-
+                    UserId = Convert.ToInt32(_httpContextAccessor.HttpContext.Session.GetInt32("Id")),
+                    CreatedOn = DateTime.Now
                 });
             }
             catch (Exception ex)

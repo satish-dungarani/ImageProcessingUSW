@@ -28,13 +28,17 @@ namespace ImageProcessing.Data.Interface
         // To Get User List
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return await _dbContext.Users.ToListAsync();
+            var list =  await _dbContext.Users.ToListAsync();
+            _dbContext.Dispose();
+            return list;
         }
 
         // To Get User By Id
         public async Task<User> GetUserByIdAsync(int Id)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(m => m.Id == Id);
+            User? model = await _dbContext.Users.FirstOrDefaultAsync(m => m.Id == Id);
+            _dbContext.Dispose();
+            return model;
         }
 
         // To Get User Insert/Update User
@@ -58,6 +62,14 @@ namespace ImageProcessing.Data.Interface
             _dbContext.RequestsAudits.Add(requestsAudit);
             return await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<RequestsAudit>> GetRequestsAuditsAsync()
+        {
+            var list = await _dbContext.RequestsAudits.ToListAsync();
+            _dbContext.Dispose();
+            return list;
+        }
+
 
         //To Check User
         public async Task<User> CheckUser(string email, string password)

@@ -8,6 +8,7 @@ using SixLabors.ImageSharp.Formats.Webp;
 using SixLabors.ImageSharp.Processing.Processors;
 using Path = System.IO.Path;
 using ImageProcessing.Data.Interface;
+using ImageProcessing.Data;
 
 namespace ImageProcessing.Services
 {
@@ -49,7 +50,7 @@ namespace ImageProcessing.Services
         {
             try
             {
-                using Image image = Image.Load(Path.Combine(Directory.GetCurrentDirectory(),"wwwroot", entity.RequestedImageUrl));
+                using Image image = Image.Load(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", entity.RequestedImageUrl));
 
                 switch (entity.IPQuality)
                 {
@@ -73,6 +74,12 @@ namespace ImageProcessing.Services
             {
                 throw ex;
             }
+        }
+
+
+        public async Task<IEnumerable<ImageProcessingHistory>> GetHistoriesAsync()
+        {
+            return await _imageProcessingRepository.GetImageProcessingHistoriesAsync();
         }
         #endregion
 

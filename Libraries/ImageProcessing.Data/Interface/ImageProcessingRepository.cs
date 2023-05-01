@@ -2,6 +2,7 @@
 using ImageProcessing.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,45 @@ namespace ImageProcessing.Data.Interface
         #region Methods
 
         // To Get ImageProcessingHistory List
-        public async Task<IEnumerable<ImageProcessingHistory>> GetImageProcessingHistorysAsync()
+        public async Task<IEnumerable<ImageProcessingHistory>> GetImageProcessingHistoriesAsync()
         {
-            return await _dbContext.ImageProcessingHistories.ToListAsync();
+            var list = (from p in _dbContext.ImageProcessingHistories
+                        join e in _dbContext.Users
+                        on p.UserId equals e.Id
+                        select new
+                        {
+                            Id = p.Id,
+                            UserName = e.Firstname,
+                            RequestedImageUrl = p.RequestedImageUrl,
+                            ProcessedImageUrl = p.ProcessedImageUrl,
+                            Width = p.Width,
+                            Height = p.Height,
+                            IPQuality = p.IPQuality,
+                            CreatedOn = p.CreatedOn
+                        }
+                       ).ToList();
+
+            _dbContext.Dispose();
+
+            List<ImageProcessingHistory> lis = new List<ImageProcessingHistory>();
+            foreach (var p in list)
+            {
+                lis.Add(new ImageProcessingHistory()
+                {
+                    Id = p.Id,
+                    UserName = p.UserName,
+                    RequestedImageUrl = p.RequestedImageUrl,
+                    ProcessedImageUrl = p.ProcessedImageUrl,
+                    Width = p.Width,
+                    Height = p.Height,
+                    IPQuality = p.IPQuality,
+                    CreatedOn = p.CreatedOn
+
+                });
+            }
+
+            return lis;
+            //return await _dbContext.ImageProcessingHistories.ToListAsync();
         }
 
         // To Get ImageProcessingHistory By Id

@@ -14,5 +14,7 @@ namespace ImageProcessing.Data.Interface
         Task<int> InsertUserAsync(User user);
         Task<int> InsertRequestsAuditAsync(RequestsAudit requestsAudit);
         Task<User> CheckUser(string email, string password);
+
+        Task<IEnumerable<RequestsAudit>> GetRequestsAuditsAsync();
     }
 }

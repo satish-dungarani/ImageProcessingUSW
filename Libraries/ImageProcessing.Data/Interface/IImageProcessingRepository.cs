@@ -11,7 +11,7 @@ namespace ImageProcessing.Data.Interface
 {
     public interface IImageProcessingRepository
     {
-        Task<IEnumerable<ImageProcessingHistory>> GetImageProcessingHistorysAsync();
+        Task<IEnumerable<ImageProcessingHistory>> GetImageProcessingHistoriesAsync();
         Task<ImageProcessingHistory> GetImageProcessingHistoryByIdAsync(int Id);
         Task<bool> DeleteImageProcessingHistoryByIdAsync(int Id);
         Task<int> InsertImageProcessingHistoryAsync(ImageProcessingHistory ImageProcessingHistory);

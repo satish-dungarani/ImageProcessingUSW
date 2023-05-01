@@ -1,6 +1,9 @@
-﻿using ImageProcessing.Web.Models;
+﻿using ImageProcessing.Data;
+using ImageProcessing.Services;
+using ImageProcessing.Web.Helpers;
+using ImageProcessing.Web.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace ImageProcessing.Web.Areas.Admin.Controllers
 {
@@ -8,21 +11,48 @@ namespace ImageProcessing.Web.Areas.Admin.Controllers
     [Route("admin/[controller]/[action]")]
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index()
+        #region Pros
+
+        private readonly IUserService _userService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IImageProcessingService _imageProcessingService;
+
+        #endregion
+
+        #region Ctors
+        public HomeController(IUserService userService, IHttpContextAccessor httpContextAccessor, IImageProcessingService imageProcessingService)
+        {
+            _userService = userService;
+            _httpContextAccessor = httpContextAccessor;
+            _imageProcessingService = imageProcessingService;
+        }
+
+        #endregion
+
+        #region Methods
+
+        public ActionResult Index()
         {
             return View();
         }
-        public async Task<ActionResult> Users()
+        public ActionResult Users()
         {
-            return View();
+            var userlist = _userService.GetUserAsync().GetAwaiter().GetResult();
+            return View(userlist.ToList());
         }
-        public async Task<ActionResult> UserTrafficTracking()
+
+        public ActionResult UserTracker()
         {
-            return View();
+            var tracklist = _userService.GetUserRequestAuditAsync().GetAwaiter().GetResult();
+            return View(tracklist.ToList());
         }
-        public async Task<ActionResult> ImaageProcessingHistory()
+
+        public async Task<ActionResult> History()
         {
-            return View();
+            var list = await _imageProcessingService.GetHistoriesAsync();
+            return View(list.ToList());
         }
+
+        #endregion
     }
 }
