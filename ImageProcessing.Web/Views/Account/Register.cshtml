@@ -105,7 +105,7 @@
         if(context.result){
             toastr.success(context.msg, 'Sucuess');
             setTimeout(function () {
-                location = $(location).attr('origin') + "Signin";
+                location = $(location).attr('origin') + "/Account/Signin";
             }, 3000)
         }else{
             toastr.error(context.msg, 'Error');

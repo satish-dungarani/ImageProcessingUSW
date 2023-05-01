@@ -16,9 +16,15 @@ builder.Services.AddDbContext<ImageProcessingDBContext>(options => options.UseSq
 builder.Logging.ClearProviders();
 builder.Logging.AddLog4Net();
 
+/// DI Registarton  -----------------
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IImageProcessingRepository,ImageProcessingRepository>();
+builder.Services.AddScoped<IImageProcessingService, ImageProcessingService>();
+/// --------------------------------
 
 builder.Services.Configure<RouteOptions>(options =>
 {

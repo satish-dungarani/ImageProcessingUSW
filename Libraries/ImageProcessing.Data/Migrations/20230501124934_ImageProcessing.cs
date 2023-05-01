@@ -12,21 +12,22 @@ namespace ImageProcessing.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Address",
+                name: "ImageProcessingHistories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    RequestedImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProcessedImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Width = table.Column<int>(type: "int", nullable: true),
+                    Height = table.Column<int>(type: "int", nullable: true),
+                    IPQuality = table.Column<int>(type: "int", nullable: true),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    Address1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<int>(type: "int", nullable: false),
-                    County = table.Column<int>(type: "int", nullable: false),
-                    Postcode = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Address", x => x.Id);
+                    table.PrimaryKey("PK_ImageProcessingHistories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,7 +76,7 @@ namespace ImageProcessing.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Address");
+                name: "ImageProcessingHistories");
 
             migrationBuilder.DropTable(
                 name: "RequestsAudits");

@@ -35,9 +35,13 @@ namespace ImageProcessing.Services
         {
             return _userRepository.InsertRequestsAuditAsync(requestsAudit);
         }
-        public Task<bool> CheckUser(string email,string password)
+        public async Task<bool> CheckUser(string email,string password)
         {
-            return _userRepository.CheckUser(email,password);
+            return await _userRepository.CheckUser(email, password) is not null;
+        }
+        public async Task<User> GetUserByEmailAndPassword(string email,string password)
+        {
+            return await _userRepository.CheckUser(email, password);
         }
         #endregion
 

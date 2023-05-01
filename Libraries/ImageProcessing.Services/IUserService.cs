@@ -10,5 +10,6 @@ namespace ImageProcessing.Services
         Task<int> InsertUserAsync(User user);
         Task<int> InsertRequestsAuditAsync(RequestsAudit requestsAudit);
         Task<bool> CheckUser(string email, string password);
+        Task<User> GetUserByEmailAndPassword(string email, string password);
     }
 }

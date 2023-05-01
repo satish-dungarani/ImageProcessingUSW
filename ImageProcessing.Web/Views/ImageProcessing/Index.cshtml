@@ -1,0 +1,93 @@
+﻿@model ImageProcessing.Web.Models.ImageProcessingModel
+
+@{
+    ViewData["Title"] = "Image Processing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" data-aos="fade-up">
+
+    <div class="section-header d-flex justify-content-between align-items-center mb-5">
+        <h2>Image Processing</h2>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 mt-6">
+            <div class="card login-logout-card">
+                <div class="card-body tab-content">
+                    <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="register-tab">
+                        <form asp-action="Index" asp-controller="ImageProcessing" method="POST" data-ajax="false" class="row" enctype="multipart/form-data">
+                            <div class="col-6">
+                                @Html.HiddenFor(m=>m.Id)
+                                <div class="col-6 mb-3">
+                                    @Html.LabelFor(m=>m.RequestedImage, new {@class="form-label required"})
+                                    @Html.TextBoxFor(m=>m.RequestedImage, new {@class="form-control", @placeholder="Upload", @type="file"})
+                                    @Html.ValidationMessageFor(m=>m.RequestedImage)
+                                </div>
+                                <div class="mb-3">
+                                    @Html.LabelFor(m=>m.Width, new {@class="form-label required"})
+                                    @Html.TextBoxFor(m=>m.Width, new {@class="form-control", @placeholder="Width"})
+                                    @Html.ValidationMessageFor(m=>m.Width)
+                                </div>
+                                <div class="mb-3">
+                                    @Html.LabelFor(m=>m.Height, new {@class="form-label required"})
+                                    @Html.TextBoxFor(m=>m.Height, new {@class="form-control", @placeholder="Height"})
+                                    @Html.ValidationMessageFor(m=>m.Height)
+                                </div>
+
+                                <div class="mb-3">
+                                    @{
+                                        var ipQualityList = new List<SelectListItem>
+                                    {
+                                    new SelectListItem { Value = "1", Text = "Oil Paint" },
+                                    new SelectListItem { Value = "2", Text = "Black & White" },
+                                    new SelectListItem { Value = "3", Text = "BG Change" }
+                                    };
+                                    }
+                                    @Html.LabelFor(m=>m.IPQuality, new {@class="form-label required"})
+
+                                    <select class="form-control" asp-for="IPQuality" name="IPQuality">
+                                        <option value="">Select Filter</option>
+                                        @foreach (var option in ipQualityList)
+                                        {
+                                            <option value="@option.Value">@option.Text</option>
+                                        }
+                                    </select>
+                                    @Html.ValidationMessageFor(m=>m.IPQuality)
+                                </div>
+
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.RequestedImageUrl))
+                            {
+
+                                <div class="col-6 row">
+                                    <div class="mb-3">
+                                        <label>Before</label>
+                                        <img src="@string.Concat("\\",Model.RequestedImageUrl?.Replace("\\","/"))" style="width: 20%;float: right;" />
+                                        <a href="@string.Concat("\\",Model.RequestedImageUrl?.Replace("\\","/"))" style="width: 20%;float: right;" download="download">Download</a>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>After</label>
+                                        <img src="@string.Concat("\\",Model.ProcessedImageUrl?.Replace("\\","/"))" style="width: 20%;float: right;" />
+                                        <a href="@string.Concat("\\",Model.ProcessedImageUrl?.Replace("\\","/"))" style="width: 20%;float: right;" download="download">Download</a>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="float-right">
+                                <button type="submit" class="btn btn-primary" style="float:right"> Proceed </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ('@TempData["ResizeSDone"]' != null && '@TempData["ResizeSDone"]' != "" && '@TempData["ResizeSDone"]' != undefined){
+            alert('@TempData["ResizeSDone"]')
+   });
+</script>

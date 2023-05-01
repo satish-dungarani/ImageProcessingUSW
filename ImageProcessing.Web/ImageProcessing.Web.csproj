@@ -171,6 +171,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\images\processed\" />
     <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 

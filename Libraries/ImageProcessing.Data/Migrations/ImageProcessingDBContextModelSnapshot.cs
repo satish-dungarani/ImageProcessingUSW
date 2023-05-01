@@ -22,7 +22,7 @@ namespace ImageProcessing.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ImageProcessing.Data.Entities.Address", b =>
+            modelBuilder.Entity("ImageProcessing.Data.Entities.ImageProcessingHistory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,30 +30,30 @@ namespace ImageProcessing.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Address2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("City")
+                    b.Property<int?>("Height")
                         .HasColumnType("int");
 
-                    b.Property<int>("County")
+                    b.Property<int?>("IPQuality")
                         .HasColumnType("int");
 
-                    b.Property<string>("Postcode")
-                        .IsRequired()
+                    b.Property<string>("ProcessedImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RequestedImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("Width")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Address");
+                    b.ToTable("ImageProcessingHistories");
                 });
 
             modelBuilder.Entity("ImageProcessing.Data.Entities.RequestsAudit", b =>

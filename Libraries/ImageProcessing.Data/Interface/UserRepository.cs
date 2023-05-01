@@ -60,9 +60,9 @@ namespace ImageProcessing.Data.Interface
         }
 
         //To Check User
-        public async Task<bool> CheckUser(string email, string password)
+        public async Task<User> CheckUser(string email, string password)
         {
-            return await _dbContext.Users.Where(x => x.Email == email && x.Password == password).AnyAsync();
+            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password == password);
         }
         #endregion
 

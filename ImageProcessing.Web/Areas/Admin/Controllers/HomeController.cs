@@ -8,27 +8,21 @@ namespace ImageProcessing.Web.Areas.Admin.Controllers
     [Route("admin/[controller]/[action]")]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        public async Task<ActionResult> Users()
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public async Task<ActionResult> UserTrafficTracking()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+        public async Task<ActionResult> ImaageProcessingHistory()
+        {
+            return View();
         }
     }
 }

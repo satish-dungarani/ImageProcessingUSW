@@ -12,7 +12,7 @@ namespace ImageProcessing.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-   
+
     public class AccountController : ControllerBase
     {
         /// <summary>
@@ -67,6 +67,71 @@ namespace ImageProcessing.API.Controllers
             {
                 return NotFound();
             }
+        }
+
+
+        /// <summary>
+        /// Sign-in Action 
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <param name="Password"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("Signin")]
+        [HttpPost]
+        public virtual async Task<IActionResult> Signin(string Email, string Password)
+        {
+            var result = await _userService.GetUserByEmailAndPassword(Email, SecurityHelper.Encrypt(Password));
+            if (result != null)
+                return Ok(result);
+            else
+                return NotFound();
+        }
+
+        /// <summary>
+        /// Register User Action
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [Route("Register")]
+        [HttpPost]
+        public virtual async Task<IActionResult> Register([FromBody] UserModel user)
+        {
+            var model = await _userService.GetUserAsync();
+            var IsAlreadyRegistered = model.Where(x => x.Email == user.Email).Any();
+
+            //Already register user checking ......
+            if (IsAlreadyRegistered)
+                ModelState.AddModelError(nameof(user.Email), "Email is already registered in system.");
+
+            //Password matching .......
+            if (user.Password != user.ConfirmPassword)
+                ModelState.AddModelError(nameof(user.ConfirmPassword), "Password and confirm password does not match.");
+
+            //Checking for field validation in Model ......
+            if (!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
+
+            //Calling Insert service to register user in database........
+            int result = await _userService.InsertUserAsync(new Data.User()
+            {
+                Firstname = user.Firstname,
+                Lastname = user.Lastname,
+                Email = user.Email,
+                Password = SecurityHelper.Encrypt(user.Password),
+                CreatedOn = DateTime.Now,
+                IsActive = true,
+                IsAdmin = false
+            });
+            if (result > 0)
+            {
+                user.Id = result;
+
+                return Ok(user);
+            }
+            else
+                return BadRequest();
         }
     }
 }
