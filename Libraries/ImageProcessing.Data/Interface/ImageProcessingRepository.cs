@@ -44,7 +44,6 @@ namespace ImageProcessing.Data.Interface
                         }
                        ).ToList();
 
-            _dbContext.Dispose();
 
             List<ImageProcessingHistory> lis = new List<ImageProcessingHistory>();
             foreach (var p in list)

@@ -42,6 +42,11 @@ namespace ImageProcessing.Web.Controllers
         {
             try
             {
+                if (string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
+                {
+                    return View(user);
+                }
+
                 var model = await _userService.GetUserAsync();
                 var result = model.Where(x => x.Password == SecurityHelper.Encrypt(user.Password) && x.Email == user.Email).FirstOrDefault();
                 if (result != null)

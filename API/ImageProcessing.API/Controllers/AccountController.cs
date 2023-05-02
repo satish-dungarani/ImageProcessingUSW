@@ -1,4 +1,5 @@
 ﻿using ImageProcessing.API.Models;
+using ImageProcessing.Data;
 using ImageProcessing.Services;
 using ImageProcessing.Services.Helpers;
 using Microsoft.AspNetCore.Authorization;
@@ -73,15 +74,15 @@ namespace ImageProcessing.API.Controllers
         /// <summary>
         /// Sign-in Action 
         /// </summary>
-        /// <param name="Email"></param>
-        /// <param name="Password"></param>
+        /// <param name="signin"></param>
         /// <returns></returns>
         [AllowAnonymous]
         [Route("Signin")]
         [HttpPost]
-        public virtual async Task<IActionResult> Signin(string Email, string Password)
+        public virtual async Task<IActionResult> Signin([FromBody] SigninModel signin)
         {
-            var result = await _userService.GetUserByEmailAndPassword(Email, SecurityHelper.Encrypt(Password));
+
+            var result = await _userService.GetUserByEmailAndPassword(signin.Email, signin.Password);
             if (result != null)
                 return Ok(result);
             else

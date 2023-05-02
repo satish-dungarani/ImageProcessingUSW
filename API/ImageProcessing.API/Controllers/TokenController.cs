@@ -1,4 +1,5 @@
-﻿using ImageProcessing.Services;
+﻿using ImageProcessing.API.Models;
+using ImageProcessing.Services;
 using ImageProcessing.Services.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,10 +39,10 @@ namespace ImageProcessing.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post(string email,string password)
+        public async Task<IActionResult> Post([FromBody] SigninModel signin)
         {
             //Check user befor providing token
-            if (!await _userService.CheckUser(email, SecurityHelper.Encrypt(password)))
+            if (!await _userService.CheckUser(signin.Email, SecurityHelper.Encrypt(signin.Password)))
                 return Unauthorized();
             
             //create claims details based on the user information

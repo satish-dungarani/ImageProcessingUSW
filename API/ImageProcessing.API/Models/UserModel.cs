@@ -73,4 +73,22 @@ namespace ImageProcessing.API.Models
         [Display(Name = "Profile Picture URL")]
         public string? ProfilePictureUrl { get; set; }
     }
+
+
+    /// <summary>
+    /// Signin BOdy Request for
+    /// </summary>
+    public class SigninModel
+    {
+        /// <summary>
+        /// Email ID
+        /// </summary>
+        [Required]
+        public string Email { get; set; }
+        /// <summary>
+        /// Password 
+        /// </summary>
+        [Required]
+        public string Password { get; set; }
+    }
 }

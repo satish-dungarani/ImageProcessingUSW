@@ -29,7 +29,6 @@ namespace ImageProcessing.Data.Interface
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
             var list =  await _dbContext.Users.ToListAsync();
-            _dbContext.Dispose();
             return list;
         }
 
@@ -37,7 +36,6 @@ namespace ImageProcessing.Data.Interface
         public async Task<User> GetUserByIdAsync(int Id)
         {
             User? model = await _dbContext.Users.FirstOrDefaultAsync(m => m.Id == Id);
-            _dbContext.Dispose();
             return model;
         }
 
@@ -66,7 +64,6 @@ namespace ImageProcessing.Data.Interface
         public async Task<IEnumerable<RequestsAudit>> GetRequestsAuditsAsync()
         {
             var list = await _dbContext.RequestsAudits.ToListAsync();
-            _dbContext.Dispose();
             return list;
         }
 
