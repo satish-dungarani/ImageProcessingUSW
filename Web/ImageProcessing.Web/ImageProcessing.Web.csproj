@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +16,6 @@
 
   <ItemGroup>
     <Content Remove="Views\Shared\_Layout - Copy.cshtml" />
-    <Content Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1766,7 +1766,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\processed\" />
-    <Folder Include="wwwroot\lib\jquery\dist\" />
   </ItemGroup>
 
   <ItemGroup>

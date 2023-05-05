@@ -26,13 +26,13 @@
                         <form asp-action="Signin" asp-controller="Account" method="POST" data-ajax="true" data-ajax-success="onSuccess">
                             <div class="mb-3">
                                 <label for="Email" class="form-label required">Email address</label>
-                                @Html.TextBoxFor(m=>m.Email, new {@class="form-control", @type="email", @placeholder="Email"})
+                                @Html.TextBoxFor(m=>m.Email, new {@class="form-control", @type="email", @placeholder="Email", @required= true})
                                 @Html.ValidationMessageFor(m=>m.Email)
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="Password" class="form-label required">Password</label>
-                                @Html.TextBoxFor(m=>m.Password, new {@class="form-control", @type="password", @placeholder="Password"})
+                                @Html.TextBoxFor(m=>m.Password, new {@class="form-control", @type="password", @placeholder="Password", @required= true})
                                 @Html.ValidationMessageFor(m=>m.Password)
                             </div>
                             <div class="mb-3 form-check">
@@ -40,7 +40,7 @@
                                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
                             </div>
                             <div class="mb-3">
-                                <button type="submit" class="btn btn-primary" style="float:left"> Submit</button>
+                                <button type="submit" class="btn btn-primary" style="float:left" onclick="return validateform();"> Submit</button>
                                 <a asp-controller="Account" class="btn btn-primary" asp-action="Register" style="float:right">Register</a>
                             </div>
                           
@@ -52,7 +52,7 @@
         </div>
     </div>
 </div>
-
+<script src="~/js/jquery.unobtrusive-ajax.js"></script>
  <script>
     var onSuccess = function (context) {
         if (context.result) {
@@ -64,5 +64,18 @@
             toastr.error(context.msg, 'Error');
         }
     };
+
+    function validateform(){
+        if ($("#Email").val() == null || $("#Email").val() == "") {
+            toastr.warning("Please Enter valid email.", 'Warning');
+            $("#Email").focus();
+            return false;
+        }
+        if ($("#Password").val() == null || $("#Password").val() == "") {
+            toastr.warning("Please Enter valid Password.", 'Warning');
+            $("#Password").focus();
+            return false;
+        }
+    }
+
 </script>
-<script src="https://datalakeg.nhai.gov.in/UAT/Scripts/jquery.unobtrusive-ajax.min.js"></script>

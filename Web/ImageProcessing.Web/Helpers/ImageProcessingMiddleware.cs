@@ -25,8 +25,8 @@ namespace ImageProcessing.Web.Helpers
             string url = httpContext.Request.Path;
 
             // Get the user's location (if available)
-            string location = "";
-            //string location = httpContext.Session.GetString("IPAddress") == ipAddress ? httpContext.Session.GetString("Location") : GetLocationFromIpAddress(ipAddress);
+            //string location = "";
+            string location = httpContext.Session.GetString("IPAddress") == ipAddress ? httpContext.Session.GetString("Location") : GetLocationFromIpAddress(ipAddress);
 
             // Get the unique session key
             string sessionKey = httpContext.Session.Id;
